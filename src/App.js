@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
+import './ThemeContext';
+import ThemeContext from './ThemeContext';
+import Header from './Header';
+import Main from './MainWithComponent';
+
 
 function App() {
-  const [theme, setTheme] = React.useState("blue");
+  const themeHook = React.useState("dark");
+
   return (
+    <ThemeContext.Provider value = {themeHook}>
     <div>
-      <Text theme="blue" />
-      <h1>{theme}</h1>
+      <Header />
+      <Main />
     </div>
+    </ThemeContext.Provider>
   );
 }
 
